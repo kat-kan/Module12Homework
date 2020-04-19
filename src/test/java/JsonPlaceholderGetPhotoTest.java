@@ -8,7 +8,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class JsonPlaceholderGETPhotoTest {
+public class JsonPlaceholderGetPhotoTest {
 
     private final String BASE_URL = "https://jsonplaceholder.typicode.com";
     private final String PHOTOS = "photos";

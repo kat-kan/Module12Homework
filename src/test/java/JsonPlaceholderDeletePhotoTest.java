@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class JsonPlaceholderDELETEPhotoTest {
+public class JsonPlaceholderDeletePhotoTest {
 
     private final String BASE_URL = "https://jsonplaceholder.typicode.com";
     private final String PHOTOS = "photos";
@@ -22,11 +22,12 @@ public class JsonPlaceholderDELETEPhotoTest {
     }
 
     @Test
-    public void jsonPlaceholderRemovePhotoDELETETest(){
+    public void jsonPlaceholderRemovePhotoDeleteTest(){
 
         given()
+                .pathParam("photoId", randomPhotoId)
                 .when()
-                .delete(BASE_URL + "/" + PHOTOS + "/" + randomPhotoId)
+                .delete(BASE_URL + "/" + PHOTOS + "/{photoId}")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
