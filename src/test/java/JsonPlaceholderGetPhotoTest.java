@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonPlaceholderGetPhotoTest {
 
-    private final String BASE_URL = "https://jsonplaceholder.typicode.com";
-    private final String PHOTOS = "photos";
+    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String PHOTOS = "photos";
 
     @Test
     public void jsonPlaceholderGetPhotoTest(){

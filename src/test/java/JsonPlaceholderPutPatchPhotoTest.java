@@ -11,14 +11,14 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JsonPlaceholderPutPatchPhotoTest {
-    private final String BASE_URL = "https://jsonplaceholder.typicode.com";
-    private final String PHOTOS = "photos";
+    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String PHOTOS = "photos";
 
     private static Faker faker;
-    private static String fakeTitleFromHP;
     private static int randomPhotoId;
 
     private int randomAlbumId;
+    private String fakeTitleFromHP;
     private String fakeUrl;
     private String fakeThumbnailUrl;
 
@@ -26,7 +26,6 @@ public class JsonPlaceholderPutPatchPhotoTest {
     public static void  beforeAll(){
 
         faker = new Faker();
-        fakeTitleFromHP = faker.harryPotter().quote();
         randomPhotoId = faker.number().numberBetween(1,5000);
     }
 
@@ -34,6 +33,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
     public void beforeEach(){
 
         randomAlbumId = faker.number().numberBetween(1,100);
+        fakeTitleFromHP = faker.harryPotter().quote();
         fakeUrl = faker.internet().url();
         fakeThumbnailUrl = faker.internet().url();
     }

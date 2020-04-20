@@ -8,8 +8,8 @@ import static io.restassured.RestAssured.given;
 
 public class JsonPlaceholderDeletePhotoTest {
 
-    private final String BASE_URL = "https://jsonplaceholder.typicode.com";
-    private final String PHOTOS = "photos";
+    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String PHOTOS = "photos";
 
     private static Faker faker;
     private static int randomPhotoId;
@@ -24,7 +24,7 @@ public class JsonPlaceholderDeletePhotoTest {
     @Test
     public void jsonPlaceholderRemovePhotoDeleteTest(){
 
-        given()
+        Response response = given()
                 .pathParam("photoId", randomPhotoId)
                 .when()
                 .delete(BASE_URL + "/" + PHOTOS + "/{photoId}")

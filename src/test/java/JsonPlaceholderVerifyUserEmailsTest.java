@@ -1,7 +1,6 @@
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonPlaceholderVerifyUserEmailsTest {
 
-    private final String BASE_URL = "https://jsonplaceholder.typicode.com";
-    private final String USERS = "users";
+    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String USERS = "users";
     
     @Test
     public void verifyUserEmailsTest(){
