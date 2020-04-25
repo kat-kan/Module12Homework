@@ -18,7 +18,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
     private static int randomPhotoId;
 
     private int randomAlbumId;
-    private String fakeTitleFromHP;
+    private String fakeTitle;
     private String fakeUrl;
     private String fakeThumbnailUrl;
 
@@ -33,7 +33,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
     public void beforeEach(){
 
         randomAlbumId = faker.number().numberBetween(1,100);
-        fakeTitleFromHP = faker.harryPotter().quote();
+        fakeTitle = faker.harryPotter().quote();
         fakeUrl = faker.internet().url();
         fakeThumbnailUrl = faker.internet().url();
     }
@@ -43,7 +43,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
 
         JSONObject photo = new JSONObject();
         photo.put("albumId", randomAlbumId);
-        photo.put("title", fakeTitleFromHP);
+        photo.put("title", fakeTitle);
         photo.put("url", fakeUrl);
         photo.put("thumbnailUrl", fakeThumbnailUrl);
 
@@ -61,7 +61,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
         JsonPath json = response.jsonPath();
 
         assertEquals(randomAlbumId, json.getInt("albumId"));
-        assertEquals(fakeTitleFromHP, json.get("title"));
+        assertEquals(fakeTitle, json.get("title"));
         assertEquals(fakeUrl, json.get("url"));
         assertEquals(fakeThumbnailUrl, json.get("thumbnailUrl"));
     }
@@ -70,7 +70,7 @@ public class JsonPlaceholderPutPatchPhotoTest {
     public void jsonPlaceholderUpdatePhotoPatchTest(){
 
         JSONObject photo = new JSONObject();
-        photo.put("title", fakeTitleFromHP);
+        photo.put("title", fakeTitle);
 
         Response response = given()
                 .contentType("application/json")
@@ -85,6 +85,6 @@ public class JsonPlaceholderPutPatchPhotoTest {
 
         JsonPath json = response.jsonPath();
 
-        assertEquals(fakeTitleFromHP, json.get("title"));
+        assertEquals(fakeTitle, json.get("title"));
     }
 }

@@ -18,7 +18,7 @@ public class JsonPlaceholderPostPhotoTest {
 
     private static Faker faker;
     private int randomAlbumId;
-    private String fakeTitleFromHitchiker;
+    private String fakeTitle;
     private String fakeUrl;
     private String fakeThumbnailUrl;
 
@@ -32,7 +32,7 @@ public class JsonPlaceholderPostPhotoTest {
     public void beforeEach(){
 
         randomAlbumId = faker.number().numberBetween(1,100);
-        fakeTitleFromHitchiker = faker.hitchhikersGuideToTheGalaxy().marvinQuote();
+        fakeTitle = faker.hitchhikersGuideToTheGalaxy().marvinQuote();
         fakeUrl = faker.internet().url();
         fakeThumbnailUrl = faker.internet().url();
     }
@@ -42,7 +42,7 @@ public class JsonPlaceholderPostPhotoTest {
 
         JSONObject photo = new JSONObject();
         photo.put("albumId", randomAlbumId);
-        photo.put("title", fakeTitleFromHitchiker);
+        photo.put("title", fakeTitle);
         photo.put("url", fakeUrl);
         photo.put("thumbnailUrl", fakeThumbnailUrl);
 
@@ -59,7 +59,7 @@ public class JsonPlaceholderPostPhotoTest {
         JsonPath json = response.jsonPath();
 
         assertEquals(randomAlbumId, json.getInt("albumId"));
-        assertEquals(fakeTitleFromHitchiker, json.get("title"));
+        assertEquals(fakeTitle, json.get("title"));
         assertEquals(fakeUrl, json.get("url"));
         assertEquals(fakeThumbnailUrl, json.get("thumbnailUrl"));
     }
